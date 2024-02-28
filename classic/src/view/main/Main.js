@@ -82,18 +82,25 @@ Ext.define('MyApp.view.main.Main', {
             xtype: 'mainlist'
         }]
     }, {
-        title: 'Users',
+        title: 'Posts',
         iconCls: 'fa-user',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        items: [{
+            xtype: 'postgrid'
+        }]
     }, {
-        title: 'Groups',
+        title: 'Todos',
         iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        items: [{
+            xtype: 'todogrid'
+        }]
     }, {
+        title: 'Albums',
+        iconCls: 'fa-users',
+        items: [{
+            xtype: 'albumgrid'
+        }]
+    }, 
+    {
         title: 'Settings',
         iconCls: 'fa-cog',
         bind: {

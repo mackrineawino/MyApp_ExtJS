@@ -3,25 +3,30 @@
  * calls Ext.application(). This is the ideal place to handle application launch and
  * initialization details.
  */
-Ext.define('MyApp.Application', {
-    extend: 'Ext.app.Application',
+Ext.define("MyApp.Application", {
+    /** vscode-extjs-ignore-9 */
+    extend: "Ext.app.Application",
 
-    name: 'MyApp',
+    name: "MyApp",
 
     quickTips: false,
     platformConfig: {
         desktop: {
-            quickTips: true
-        }
+            quickTips: true,
+        },
     },
 
     onAppUpdate: function () {
-        Ext.Msg.confirm('Application Update', 'This application has an update, reload?',
+        Ext.Msg.confirm("Application Update", "This application has an update, reload?",
             function (choice) {
-                if (choice === 'yes') {
+                if (choice === "yes") {
                     window.location.reload();
                 }
             }
         );
-    }
-});
+    },
+},
+function () {
+    console.log("On th callback");
+  }
+);
