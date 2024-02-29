@@ -1,9 +1,16 @@
 Ext.define('MyApp.view.posts.PostGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'postgrid',
+    controller: 'postgridviewcontroller',
     store: {
         type: 'posts'
     },
+    tbar:[{
+        text: 'Add Post',
+        listeners:{
+            click: 'onAddPostClicked'
+        }
+    }],
     columns: [
         { dataIndex: 'id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
@@ -15,11 +22,10 @@ Ext.define('MyApp.view.posts.PostGrid', {
         mode: 'SINGLE'
     },
     bbar: {
-        /** vscode-extjs-ignore-2 */
         xtype: 'pagingtoolbar',
         displayInfo: true
     },
     scrollable:true,
-    height: 800
+    height: 400
 
 })

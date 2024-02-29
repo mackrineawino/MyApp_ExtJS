@@ -1,9 +1,16 @@
 Ext.define('MyApp.view.posts.AlbumGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'albumgrid',
+    controller: 'albumgridviewcontroller',
     store: {
         type: 'albums'
     },
+    tbar:[{
+        text: 'Add Album',
+        listeners:{
+            click: 'onAddAlbumClicked'
+        }
+    }],
     columns: [
         { dataIndex: 'id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
@@ -14,11 +21,10 @@ Ext.define('MyApp.view.posts.AlbumGrid', {
         mode: 'SINGLE'
     },
     bbar: {
-        /** vscode-extjs-ignore-2 */
         xtype: 'pagingtoolbar',
         displayInfo: true
     },
     scrollable:true,
-    height: 800
+    height: 400
 
 })

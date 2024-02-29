@@ -23,34 +23,37 @@ Ext.define('MyApp.view.main.Main', {
 
     tabBarPosition: 'bottom',
 
-    items: [
-        // TODO - Replace the content of this view to suit the needs of your application.
-        {
-            title: 'Home',
-            iconCls: 'x-fa fa-home',
-            layout: 'fit',
-            // The following grid shares a store with the classic version's grid as well!
-            items: [{
-                xtype: 'mainlist'
-            }]
-        },{
-            title: 'Users',
-            iconCls: 'x-fa fa-user',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Groups',
-            iconCls: 'x-fa fa-users',
-            bind: {
-                html: '{loremIpsum}'
-            }
-        },{
-            title: 'Settings',
-            iconCls: 'x-fa fa-cog',
-            bind: {
-                html: '{loremIpsum}'
-            }
+    items: [{
+        title: 'Home',
+        iconCls: 'fa-home',
+        // The following grid shares a store with the classic version's grid as well!
+        items: [{
+            xtype: 'mainlist'
+        }]
+    }, {
+        title: 'Posts',
+        iconCls: 'fa-user',
+        items: [{
+            xtype: 'postgrid'
+        }]
+    }, {
+        title: 'Todos',
+        iconCls: 'fa-users',
+        items: [{
+            xtype: 'todogrid'
+        }]
+    }, {
+        title: 'Albums',
+        iconCls: 'fa-users',
+        items: [{
+            xtype: 'albumgrid'
+        }]
+    }, 
+    {
+        title: 'Settings',
+        iconCls: 'fa-cog',
+        bind: {
+            html: '{loremIpsum}'
         }
-    ]
+    }]
 });

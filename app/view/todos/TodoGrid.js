@@ -1,9 +1,16 @@
 Ext.define('MyApp.view.todos.TodoGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'todogrid',
+    controller: 'todogridviewcontroller',
     store: {
         type: 'todos'
     },
+    tbar:[{
+        text: 'Add Todo',
+        listeners:{
+            click: 'onAddTodoClicked'
+        }
+    }],
     columns: [
         { dataIndex: 'id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
@@ -15,11 +22,10 @@ Ext.define('MyApp.view.todos.TodoGrid', {
         mode: 'SINGLE'
     },
     bbar: {
-        /** vscode-extjs-ignore-2 */
         xtype: 'pagingtoolbar',
         displayInfo: true
     },
     scrollable:true,
-    height: 800
+    height: 400
 
 })

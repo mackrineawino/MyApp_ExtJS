@@ -83,19 +83,19 @@ Ext.define('MyApp.view.main.Main', {
         }]
     }, {
         title: 'Posts',
-        iconCls: 'fa-user',
+        iconCls: 'fa-clipboard',
         items: [{
             xtype: 'postgrid'
         }]
     }, {
         title: 'Todos',
-        iconCls: 'fa-users',
+        iconCls: 'fa-list',
         items: [{
             xtype: 'todogrid'
         }]
     }, {
         title: 'Albums',
-        iconCls: 'fa-users',
+        iconCls: 'fa-building',
         items: [{
             xtype: 'albumgrid'
         }]
