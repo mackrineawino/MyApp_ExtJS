@@ -9,5 +9,10 @@ Ext.define('MyApp.view.posts.PostGridViewController',{
             xtype: "postformwindow",
         });
         wd.show();
-    }
+    },
+    onFormFieldsClicked:function(btn,e,eOpts){
+        Ext.create({
+              xtype: "formfieldsdemo",
+          });
+      }
 })
