@@ -5,9 +5,9 @@ Ext.define('MyApp.view.posts.PostGrid', {
     store: {
         type: 'posts'
     },
-    tbar:[{
+    tbar: [{
         text: 'Add Post',
-        listeners:{
+        listeners: {
             click: 'onAddPostClicked'
         }
     },
@@ -15,15 +15,35 @@ Ext.define('MyApp.view.posts.PostGrid', {
         text: 'Form fields',
         listeners: {
             click: 'onFormFieldsClicked'
-        }  },
-        {
-            text: 'Layouts',
-            listeners: {
-                click: 'onLayoutsClicked'
-            }
-        }],
+        }
+    },
+    {
+        text: 'BorderLayout',
+        listeners: {
+            click: 'onBorderLayoutsClicked'
+        }
+    },
+    {
+        text: 'HBoxVbox',
+        listeners: {
+            click: 'onHBoxVboxLayoutsClicked'
+        }
+    },
+    {
+        text: 'Column layout ',
+        listeners: {
+            click: 'onColumnLayoutsClicked'
+        }
+    },
+    {
+        text: 'Accordion layout ',
+        listeners: {
+            click: 'onAccordionLayoutsClicked'
+        }
+    }
+    ],
     columns: [
-        { dataIndex: 'id', text: 'ID' },
+        { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
         { dataIndex: 'body', text: 'Body', flex: 2 },
         { dataIndex: 'userId', text: 'User ID' }
@@ -36,7 +56,7 @@ Ext.define('MyApp.view.posts.PostGrid', {
         xtype: 'pagingtoolbar',
         displayInfo: true
     },
-    scrollable:true,
+    scrollable: true,
     height: 400
 
 })

@@ -1,14 +1,16 @@
 Ext.define('MyApp.model.Todo',{
     extend: 'Ext.data.Model',
-    idProperty: 'id',
+    idProperty: '_id',
     fields:[
-        'id','userId','title','completed'
+        '_id','userId','title','completed'
     ],
     proxy: {
         type: 'rest', // type of call
-        url: 'https://jsonplaceholder.typicode.com/todos',
+        url: 'http://localhost:3000/todos',
         reader: {
             type: 'json',
+            rootProperty: 'rows',
+            totalProperty: 'totalCount'
         }
     }
 

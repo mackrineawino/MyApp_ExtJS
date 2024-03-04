@@ -19,7 +19,7 @@ Ext.define('MyApp.view.posts.TodoFormWindow', {
                allowBlank: false,
                readOnly:true,
                xtype:'textfield',
-               reference: 'postId',
+               reference: 'todoId',
                fieldLabel: 'Todo ID',
                name: 'id',
                emptyText: 'Todo id'

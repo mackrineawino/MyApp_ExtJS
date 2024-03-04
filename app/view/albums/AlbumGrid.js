@@ -12,7 +12,7 @@ Ext.define('MyApp.view.posts.AlbumGrid', {
         }
     }],
     columns: [
-        { dataIndex: 'id', text: 'ID' },
+        { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
         { dataIndex: 'userId', text: 'User ID' }
     ],

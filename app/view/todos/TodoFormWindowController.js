@@ -19,7 +19,7 @@ Ext.define('MyApp.view.todos.TodoFormController', {
             //send ajax request to submit
             form.submit({
                 method:'POST',
-                url:'https://jsonplaceholder.typicode.com/todos',
+                url:'http://localhost:3000/todos',
                 success:function(form,action){
                     Ext.Msg.alert('Success', action.result.msg);
                     // add the record tpo the post store -> post grid
