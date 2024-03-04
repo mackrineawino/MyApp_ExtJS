@@ -1,6 +1,7 @@
 Ext.define('MyApp.view.posts.AlbumFormWindow', {
     extend: 'Ext.window.Window',
     xtype: 'albumformwindow',
+    controller:'albumformcontroller',
     title: "Add Album",
     height: 300,
     width: 520,
@@ -8,11 +9,17 @@ Ext.define('MyApp.view.posts.AlbumFormWindow', {
     closable: true,
     modal: true,
     items:[{
-       xtype: 'form',
+        xtype: 'form',
+        reference: 'albumform',
+        itemId:'albumform',
+        jsonSubmit:true,
+        bodyPadding: 10,
        items:[
            {
                allowBlank: false,
+               readOnly:true,
                xtype:'textfield',
+               reference: 'albumId',
                fieldLabel: 'Album ID',
                name: 'id',
                emptyText: 'Album id'
@@ -42,7 +49,13 @@ Ext.define('MyApp.view.posts.AlbumFormWindow', {
 
     }],
     buttons: [
-        { text: 'Cancel' },
-        { text: 'Save' },
+        {
+            text: 'Clear',
+            handler: 'onClearClick'
+        },
+        {
+            text: 'Save',
+            handler: 'onSaveClick'
+        },
     ]
 })

@@ -1,6 +1,7 @@
 Ext.define('MyApp.view.posts.TodoFormWindow', {
     extend: 'Ext.window.Window',
     xtype: 'todoformwindow',
+    controller:'todoformcontroller',
     title: "Add Todo",
     height: 300,
     width: 520,
@@ -8,11 +9,17 @@ Ext.define('MyApp.view.posts.TodoFormWindow', {
     closable: true,
     modal: true,
     items:[{
-       xtype: 'form',
+        xtype: 'form',
+        reference: 'todoform',
+        itemId:'todoform',
+        jsonSubmit:true,
+        bodyPadding: 10,
        items:[
            {
                allowBlank: false,
+               readOnly:true,
                xtype:'textfield',
+               reference: 'postId',
                fieldLabel: 'Todo ID',
                name: 'id',
                emptyText: 'Todo id'
@@ -49,7 +56,13 @@ Ext.define('MyApp.view.posts.TodoFormWindow', {
 
     }],
     buttons: [
-        { text: 'Cancel' },
-        { text: 'Save' },
+        {
+            text: 'Clear',
+            handler: 'onClearClick'
+        },
+        {
+            text: 'Save',
+            handler: 'onSaveClick'
+        },
     ]
 })
