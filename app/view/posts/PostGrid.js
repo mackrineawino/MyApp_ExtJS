@@ -15,7 +15,12 @@ Ext.define('MyApp.view.posts.PostGrid', {
         text: 'Form fields',
         listeners: {
             click: 'onFormFieldsClicked'
-        }
+        }  },
+        {
+            text: 'Layouts',
+            listeners: {
+                click: 'onLayoutsClicked'
+            }
         }],
     columns: [
         { dataIndex: 'id', text: 'ID' },
