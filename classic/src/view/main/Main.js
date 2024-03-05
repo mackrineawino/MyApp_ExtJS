@@ -84,27 +84,27 @@ Ext.define('MyApp.view.main.Main', {
     }, {
         title: 'Posts',
         iconCls: 'fa-clipboard',
-        items: [{
-            xtype: 'postgrid'
-        }]
+        // items: [{
+        //     xtype: 'postgrid'
+        // }]
     }, {
         title: 'Todos',
         iconCls: 'fa-list',
-        items: [{
-            xtype: 'todogrid'
-        }]
+        // items: [{
+        //     xtype: 'todogrid'
+        // }]
     }, {
         title: 'Albums',
         iconCls: 'fa-building',
-        items: [{
-            xtype: 'albumgrid'
-        }]
+        // items: [{
+        //     xtype: 'albumgrid'
+        // }]
     }, 
     {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        title: 'Static Data Tab',
+        iconCls: 'fa-database',
+        items: [{
+            xtype: 'parentpanel'
+        }]
     }]
 });

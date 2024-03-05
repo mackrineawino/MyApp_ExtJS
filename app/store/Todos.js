@@ -3,6 +3,4 @@ Ext.define('MyApp.store.Todos',{
     alias: 'store.todos',
     model: 'MyApp.model.Todo',
     requires: ['MyApp.model.Todo'],
-    autoLoad:true
-
 })
