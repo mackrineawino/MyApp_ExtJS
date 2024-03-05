@@ -14,7 +14,7 @@ Ext.define('MyApp.view.todos.TodoGrid', {
     columns: [
         { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
-        { dataIndex: 'completed', text: 'Body', flex: 2 },
+        { dataIndex: 'completed', text: 'Completed', flex: 2 },
         { dataIndex: 'userId', text: 'User ID' }
     ],
     selModel: {
@@ -26,6 +26,5 @@ Ext.define('MyApp.view.todos.TodoGrid', {
         displayInfo: true
     },
     scrollable:true,
-    height: 400
 
 })

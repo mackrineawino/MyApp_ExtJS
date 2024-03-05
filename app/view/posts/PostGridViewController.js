@@ -35,4 +35,9 @@ Ext.define('MyApp.view.posts.PostGridViewController',{
             xtype: "accordionlayout",
           });
       },
+      onCheckoutFormClicked:function(btn,e,eOpts){
+        Ext.create({
+            xtype: "checkoutform",
+          });
+      },
 })

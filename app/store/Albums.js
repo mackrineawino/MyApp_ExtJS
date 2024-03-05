@@ -3,6 +3,5 @@ Ext.define('MyApp.store.Albums',{
     alias: 'store.albums',
     model: 'MyApp.model.Album',
     requires: ['MyApp.model.Album'],
-    autoLoad:true
 
 })

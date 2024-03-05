@@ -25,6 +25,5 @@ Ext.define('MyApp.view.posts.AlbumGrid', {
         displayInfo: true
     },
     scrollable:true,
-    height: 400
 
 })

@@ -1,6 +1,7 @@
 Ext.define('MyApp.view.posts.PostGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'postgrid',
+    reference:'postgrid',
     controller: 'postgridviewcontroller',
     store: {
         type: 'posts'
@@ -40,13 +41,19 @@ Ext.define('MyApp.view.posts.PostGrid', {
         listeners: {
             click: 'onAccordionLayoutsClicked'
         }
+    },
+    {
+        text: 'Checkout Form',
+        listeners: {
+            click: 'onCheckoutFormClicked'
+        }
     }
     ],
     columns: [
         { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
-        { dataIndex: 'body', text: 'Body', flex: 2 },
-        { dataIndex: 'userId', text: 'User ID' }
+        { dataIndex: 'body', text: 'Body', flex: 2, sortable: false },
+        { dataIndex: 'userId', text: 'User ID', sortable: false, hidden: false }
     ],
     selModel: {
         selType: 'checkboxmodel',
@@ -57,6 +64,5 @@ Ext.define('MyApp.view.posts.PostGrid', {
         displayInfo: true
     },
     scrollable: true,
-    height: 400
 
 })
