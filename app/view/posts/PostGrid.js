@@ -3,6 +3,7 @@ Ext.define('MyApp.view.posts.PostGrid', {
     xtype: 'postgrid',
     reference:'postgrid',
     controller: 'postgridviewcontroller',
+    title:'Posts',
     store: {
         type: 'posts'
     },

@@ -12,7 +12,7 @@ Ext.define('MsTraining.view.layouts.CheckoutForm', {
         {
             xtype: 'form',
             scrollable: true,
-            layout: 'column',
+          
             items: [
                 {
                     columnWidth: 0.5,
@@ -216,149 +216,100 @@ Ext.define('MsTraining.view.layouts.CheckoutForm', {
                         {
                             xtype: 'fieldset',
                             title: 'Payment',
-
                             layout: 'anchor',
                             defaults: {
                                 anchor: '100%',
-                                componentCls: ""
                             },
                             items: [{
-                                boxLabel: 'VISA',
-                                inputValue: 'visa',
-                                checked: true
-                            }, {
-                                boxLabel: 'MasterCard',
-                                inputValue: 'mastercard'
-                            }, {
-                                boxLabel: 'American Express',
-                                inputValue: 'amex'
-                            }, {
-                                boxLabel: 'Discover',
-                                inputValue: 'discover'
-                            }]
-                        },
-                        {
-                            xtype: 'textfield',
-                            fieldLabel: 'Name On Card',
-                            name: 'ccName',
-                            labelWidth: 110,
-                            allowBlank: false
-                        }, {
-                            xtype: 'container',
-                            layout: 'hbox',
-                            margin: '0 0 5 0',
+                                xtype: 'radiogroup',
 
-                            items: [{
+                                layout: {
+                                    autoFlex: false
+                                },
+
+                                defaults: {
+                                    name: 'ccType',
+                                    margin: '0 15 0 0'
+                                },
+
+                                items: [{
+                                    boxLabel: 'VISA',
+                                    inputValue: 'visa',
+                                    checked: true
+                                }, {
+                                    boxLabel: 'MasterCard',
+                                    inputValue: 'mastercard'
+                                }, {
+                                    boxLabel: 'American Express',
+                                    inputValue: 'amex'
+                                }, {
+                                    boxLabel: 'Discover',
+                                    inputValue: 'discover'
+                                }]
+                            },
+                            {
                                 xtype: 'textfield',
-                                fieldLabel: 'Card Number',
-                                name: 'ccNumber',
+                                fieldLabel: 'Name On Card',
+                                name: 'ccName',
                                 labelWidth: 110,
-                                flex: 1,
-                                allowBlank: false,
-                                minLength: 15,
-                                maxLength: 16,
-                                enforceMaxLength: true,
-                                maskRe: /\d/
-                            }, 
-                            //{
-                            //     xtype: 'fieldcontainer',
-                            //     fieldLabel: 'Expiration',
-                            //     labelWidth: 75,
-                            //     layout: 'hbox',
-                            //     componentCls: "",
+                                allowBlank: false
+                            }, {
+                                xtype: 'container',
+                                layout: 'hbox',
+                                margin: '0 0 5 0',
 
-                            //     items: [{
-                            //         xtype: 'combobox',
-                            //         name: 'ccExpireMonth',
+                                items: [{
+                                    xtype: 'textfield',
+                                    fieldLabel: 'Card Number',
+                                    name: 'ccNumber',
+                                    labelWidth: 110,
+                                    flex: 1,
+                                    allowBlank: false,
+                                    minLength: 15,
+                                    maxLength: 16,
+                                    enforceMaxLength: true,
+                                    maskRe: /\d/
+                                },
+                                {
+                                    xtype: 'fieldcontainer',
+                                    fieldLabel: 'Expiration',
+                                    labelWidth: 75,
+                                    layout: 'hbox',
 
-                            //         displayField: 'name',
-                            //         valueField: 'number',
-                            //         queryMode: 'local',
-                            //         emptyText: 'Month',
-                            //         hideLabel: true,
-                            //         width: 100,
-                            //         allowBlank: false,
-                            //         forceSelection: true,
+                                    items: [{
+                                        xtype: 'combobox',
+                                        name: 'ccExpireMonth',
 
-                            //         store: {
-                            //             type: 'months'
-                            //         }
-                            //     }, {
-                            //         xtype: 'numberfield',
-                            //         name: 'ccExpireYear',
-                            //         padding: 0,
-                            //         width: 90,
-                            //         hideLabel: true,
-                            //         value: new Date().getFullYear(),
-                            //         minValue: new Date().getFullYear(),
-                            //         allowBlank: false
-                            //     }
-                            //     ]
-                            // }
+                                        displayField: 'name',
+                                        valueField: 'number',
+                                        queryMode: 'local',
+                                        emptyText: 'Month',
+                                        hideLabel: true,
+                                        width: 100,
+                                        allowBlank: false,
+                                        forceSelection: true,
+
+                                        store: {
+                                            type: 'months'
+                                        }
+                                    }, {
+                                        xtype: 'numberfield',
+                                        name: 'ccExpireYear',
+                                        padding: 0,
+                                        width: 90,
+                                        hideLabel: true,
+                                        value: new Date().getFullYear(),
+                                        minValue: new Date().getFullYear(),
+                                        allowBlank: false
+                                    }]
+                                }
+
+                                ]
+                            }
                             ]
-                        }
+                        },
                     ]
-                },
-                // {
-                //     columnWidth: 0.5,
-                //     margin: '5 5 5 5',
-                //     items: [
-                //         {
-                //             xtype: 'fieldset',
-                //             title: 'Contact Information',
-                //             layout: 'anchor',
-                //             defaults: {
-                //                 anchor: '100%'
-                //             },
-                //             items: [
-                //                 {
-                //                     xtype: 'fieldcontainer',
-                //                     labelWidth: 100,
-                //                     layout: 'hbox',
-                //                     fieldLabel: 'Name',
-                //                     items: [{
-                //                         xtype: 'textfield',
-                //                         emptyText: 'First',
-                //                         flex: 1
-                //                     },
-                //                     {
-                //                         xtype: 'splitter'
-                //                     },
-                //                     {
-                //                         xtype: 'textfield',
-                //                         emptyText: 'Last',
-                //                         flex: 1
-                //                     },]
-                //                 },
-                //                 {
-                //                     layout: 'hbox',
-                //                     xtype: 'container',
-
-                //                     items: [{
-                //                         xtype: 'textfield',
-                //                         fieldLabel: 'Email Address',
-                //                         name: 'email',
-                //                         vtype: 'email',
-                //                         flex: 1,
-                //                         allowBlank: false
-                //                     }, {
-                //                         fieldLabel: 'Phone Number',
-                //                         xtype: 'textfield',
-                //                         name: 'phone',
-                //                         labelWidth: 100,
-                //                         flex: 1,
-                //                         emptyText: 'xxx-xxx-xxxx',
-                //                         maskRe: /[\d\-]/,
-                //                         regex: /^\d{3}-\d{3}-\d{4}$/,
-                //                         regexText: 'Must be in the format xxx-xxx-xxxx'
-                //                     }
-                //                     ]
-                //                 }
-                //             ]
-                //         }
-                //     ]
-                // },
-            ]
+                }]
         }
     ],
     buttons: [{

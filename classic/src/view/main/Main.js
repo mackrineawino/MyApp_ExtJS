@@ -74,19 +74,20 @@ Ext.define('MyApp.view.main.Main', {
         }
     },
 
-    items: [{
-        title: 'Home',
-        iconCls: 'fa-home',
-        // The following grid shares a store with the classic version's grid as well!
+    items: [    {
+        title: 'Users',
+        iconCls: 'fa-user',
         items: [{
-            xtype: 'mainlist'
+            xtype: 'parentpanel'
         }]
-    }, {
+    },
+       {
         title: 'Posts',
         iconCls: 'fa-clipboard',
-        // items: [{
-        //     xtype: 'postgrid'
-        // }]
+        items: [{
+            // xtype: 'postgrid'
+           
+        }]
     }, {
         title: 'Todos',
         iconCls: 'fa-list',
@@ -101,10 +102,12 @@ Ext.define('MyApp.view.main.Main', {
         // }]
     }, 
     {
-        title: 'Static Data Tab',
-        iconCls: 'fa-database',
+        title: 'Comments',
+        iconCls: 'fa-comment',
+        // The following grid shares a store with the classic version's grid as well!
         items: [{
-            xtype: 'parentpanel'
+            xtype: 'commentgrid'
         }]
-    }]
+    },
+]
 });

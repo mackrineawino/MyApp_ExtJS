@@ -2,6 +2,7 @@ Ext.define('MyApp.view.posts.AlbumGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'albumgrid',
     controller: 'albumgridviewcontroller',
+    title:'Albums',
     store: {
         type: 'albums'
     },
