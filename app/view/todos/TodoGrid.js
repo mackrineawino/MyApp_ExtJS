@@ -1,8 +1,8 @@
 Ext.define('MyApp.view.todos.TodoGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'todogrid',
-    controller: 'todogridviewcontroller',
-    title:'Todos',
+    reference: 'todogrid',
+    controller: 'todogridcontroller',
     store: {
         type: 'todos'
     },
@@ -10,6 +10,13 @@ Ext.define('MyApp.view.todos.TodoGrid', {
         text: 'Add Todo',
         listeners:{
             click: 'onAddTodoClicked'
+        }
+    },
+    {
+        text: 'View Todo',
+        handler: 'onViewTodo',
+        bind:{
+            disabled: '{!todogrid.selection}'
         }
     }],
     columns: [
@@ -20,7 +27,7 @@ Ext.define('MyApp.view.todos.TodoGrid', {
     ],
     selModel: {
         selType: 'checkboxmodel',
-        mode: 'SINGLE'
+        mode: 'MULTI'
     },
     bbar: {
         xtype: 'pagingtoolbar',

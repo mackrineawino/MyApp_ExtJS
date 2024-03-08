@@ -1,68 +1,88 @@
 Ext.define('MyApp.view.posts.TodoFormWindow', {
     extend: 'Ext.window.Window',
-    xtype: 'todoformwindow',
+    xtype: 'todoform',
     controller:'todoformcontroller',
-    title: "Add Todo",
-    height: 300,
+    height: 350,
     width: 520,
     autoShow: true,
     closable: true,
     modal: true,
-    items:[{
-        xtype: 'form',
-        reference: 'todoform',
-        itemId:'todoform',
-        jsonSubmit:true,
-        bodyPadding: 10,
-       items:[
-           {
-               allowBlank: false,
-               readOnly:true,
-               xtype:'textfield',
-               reference: 'todoId',
-               fieldLabel: 'Todo ID',
-               name: 'id',
-               emptyText: 'Todo id'
-           },
-           {
-               allowBlank: false,
-               xtype: 'textfield',
-               fieldLabel: 'User ID',
-               name: 'userId',
-               emptyText: 'user id'
-           },
-           {
-               allowBlank: false,
-               xtype: 'textfield',
-               fieldLabel: 'Title',
-               name: 'title',
-               emptyText: 'title'
-           },
-           {
-            allowBlank: false,
-            xtype: 'textfield',
-            fieldLabel: 'Completed',
-            name: 'completed',
-            emptyText: 'Completed'
-        },
-           {
-               allowBlank: false,
-               xtype: 'datefield',
-               fieldLabel: 'Published Date',
-               name: 'date',
-               emptyText: 'date'
-           },
-       ],
+    layout: 'fit',
+    viewModel:{
+        data:{
+            newTitle: null,
+            record: null
+        }
+    },
+    bind:{
+        title: "{newTitle}",
+    },
+    items: [
+        {
+            xtype: 'form',
+            layout: 'form',
+            reference:'todoform',
+            jsonSubmit:true,
+            defaultType: 'textfield',
+            items: [
+                {
+                    fieldLabel: 'Todo ID',
+                    name: '_id',
+                    reference:'todoIdField',
+                    bind:{
+                        value:'{record._id}'
+                    },
+                    readOnly:true
+                },
+                {
+                    fieldLabel: 'Title',
+                    name: 'title',
+                    allowBlank: false,
+                    minLength:10,
+                bind: {
+                    value: '{record.title}'
+                }
 
-    }],
-    buttons: [
-        {
-            text: 'Clear',
-            handler: 'onClearClick'
-        },
-        {
-            text: 'Save',
-            handler: 'onSaveClick'
-        },
-    ]
+                },
+                {
+                    fieldLabel: 'Completed',
+                    xtype: 'checkbox',
+                    boxLabel: 'Completed',
+                    name: 'completed',
+                    bind: {
+                        value: '{record.completed}'
+                    }
+
+                },
+                {
+                    fieldLabel: 'User ID',
+                    name: 'userId',
+                    bind: {
+                        value: '{record.userId}'
+                    }
+
+                },
+                {
+                    fieldLabel: 'Comments',
+                    xtype:'textarea',
+                    name: 'comments',
+                    bind: {
+                        hidden: '{!record.completed}'
+                    }
+
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                },
+                {
+                    text: 'Save',
+                    formBind: true,
+                    handler:'onSave'
+                }
+            ]
+        }
+    ],
+
 })
