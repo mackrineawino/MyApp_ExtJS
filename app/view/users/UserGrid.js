@@ -1,6 +1,7 @@
 Ext.define('MyApp.view.users.UserGrid',{
     extend:'Ext.grid.Panel',
     xtype:'usergrid',
+    reference: 'usergrid',
     controller:'usergridcontroller',
     title:'Users',
     store:{
@@ -40,10 +41,17 @@ Ext.define('MyApp.view.users.UserGrid',{
                 click: 'onAddUserClicked'
             }
         },
+        {
+            text: 'Model Binding',
+            handler: 'onModelBinding'
+        },
         '->',
         {
           text:'Show Details',
-          handler:'onShowDetails'  
+          handler:'onShowDetails' ,
+          bind:{
+            disabled: '{!usergrid.selection}'
+        } 
         }
     ],
     selModel: {
