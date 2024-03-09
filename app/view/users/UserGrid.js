@@ -8,6 +8,11 @@ Ext.define('MyApp.view.users.UserGrid',{
         type:'users'
     },
     height:600,
+    plugins: {
+        rowediting: {
+            clicksToEdit: 2
+        }
+    },
     columns:[
         {
             dataIndex:'_id',
@@ -17,16 +22,25 @@ Ext.define('MyApp.view.users.UserGrid',{
             dataIndex: 'name',
             text: 'Name',
             flex:2,
+            editor: 'textfield'
         },
         {
             dataIndex: 'username',
             text: 'Username',
             flex:2,
+            editor: 'textfield'
         },
         {
             dataIndex: 'email',
             text: 'Email',
-            flex:3
+            flex:3,
+            renderer: function(value){
+                return Ext.String.format('<a href="mailto:{0}">{1}</a>', value, value);
+            },
+            editor: {
+                xtype: 'textfield',
+                allowBlank: false
+            }
         },
         {
             dataIndex: 'city',
@@ -55,7 +69,8 @@ Ext.define('MyApp.view.users.UserGrid',{
         }
     ],
     selModel: {
-        selType: 'checkboxmodel',
+        // selType: 'checkboxmodel',
+        selModel: 'rowmodel',
         mode: 'SINGLE'
     },
     bbar: {
