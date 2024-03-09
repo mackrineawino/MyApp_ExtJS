@@ -82,13 +82,14 @@ Ext.define('MyApp.view.main.Main', {
         }]
     },
        {
-        title: 'Posts',
+        title: 'Students',
         iconCls: 'fa-clipboard',
         items: [{
-            // xtype: 'postgrid'
+             xtype: 'studentgrid'
            
         }]
-    }, {
+    }, 
+    {
         title: 'Todos',
         iconCls: 'fa-list',
         // items: [{
