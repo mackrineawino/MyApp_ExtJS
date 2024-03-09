@@ -83,21 +83,21 @@ Ext.define('MyApp.view.main.Main', {
     },
        {
         title: 'Students',
-        iconCls: 'fa-clipboard',
+        iconCls: 'fa-address-book',
         items: [{
              xtype: 'studentgrid'
            
         }]
     }, 
     {
-        title: 'Todos',
-        iconCls: 'fa-list',
-        // items: [{
-        //     xtype: 'todogrid'
-        // }]
+        title: 'Companies',
+        iconCls: 'fa-building',
+        items: [{
+            xtype: 'companygrid'
+        }]
     }, {
         title: 'Albums',
-        iconCls: 'fa-building',
+        iconCls: 'fa-book',
         // items: [{
         //     xtype: 'albumgrid'
         // }]

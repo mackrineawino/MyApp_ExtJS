@@ -3,6 +3,7 @@ Ext.define('MyApp.store.Students', {
     alias: 'store.students',
     model: 'MyApp.model.Student',
     groupField: 'grade',
+    sorters: ['id', 'marks'],
     data: [
         { id: 1, name: 'John', marks: 85, grade: 'B' },
         { id: 2, name: 'Alice', marks: 72, grade: 'C' },

@@ -1,6 +1,7 @@
 Ext.define('MyApp.view.students.StudentGroupingGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'studentgrid',
+    scrollable: true, 
     store: {
         type: 'students'
     },
@@ -11,5 +12,5 @@ Ext.define('MyApp.view.students.StudentGroupingGrid', {
         { text: 'Marks', dataIndex: 'marks', flex: 1 }
     ],
     features: [{ ftype: 'grouping' }],
-    // renderTo: Ext.getBody()
+
 })
