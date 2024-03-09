@@ -1,26 +1,25 @@
 Ext.define('MyApp.view.users.UserFormWindow', {
     extend: 'Ext.window.Window',
     xtype: 'userformwindow',
-    controller:'userformcontroller',
+    controller: 'userformcontroller',
     title: "Add User",
-    height: 300,
+    height: 500,
     width: 520,
     autoShow: true,
+    scrollable: 'y',
     closable: true,
     modal: true,
     modelValidation: true,
     items: [{
         xtype: 'form',
         reference: 'userform',
-        itemId:'userform',
-        jsonSubmit:true,
+        jsonSubmit: true,
         bodyPadding: 10,
-        items: [
-            {
+        items: [{
                 allowBlank: true,
-                readOnly:true,
+                readOnly: true,
                 xtype: 'textfield',
-                reference: 'UserId',
+                reference: 'UserIdField',
                 fieldLabel: 'User ID',
                 name: '_id',
                 emptyText: 'user id'
@@ -46,11 +45,86 @@ Ext.define('MyApp.view.users.UserFormWindow', {
                 name: 'email',
                 emptyText: 'email'
             },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Street',
+                name: 'street',
+                emptyText: 'street'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Suite',
+                name: 'suite',
+                emptyText: 'suite'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'City',
+                name: 'city',
+                emptyText: 'city'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Zipcode',
+                name: 'zipcode',
+                emptyText: 'zipcode'
+            },
+            {
+                allowBlank: false,
+                xtype: 'numberfield',
+                fieldLabel: 'Latitude',
+                name: 'lat',
+                emptyText: 'latitude'
+            },
+            {
+                allowBlank: false,
+                xtype: 'numberfield',
+                fieldLabel: 'Longitude',
+                name: 'lng',
+                emptyText: 'longitude'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Phone',
+                name: 'phone',
+                emptyText: 'phone'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Website',
+                name: 'website',
+                emptyText: 'website'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Company Name',
+                name: 'companyName',
+                emptyText: 'company name'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Company Catch Phrase',
+                name: 'companyCatchPhrase',
+                emptyText: 'company catch phrase'
+            },
+            {
+                allowBlank: false,
+                xtype: 'textfield',
+                fieldLabel: 'Company BS',
+                name: 'companyBs',
+                emptyText: 'company bs'
+            }
         ],
-
     }],
-    buttons: [
-        {
+    buttons: [{
             text: 'Clear',
             handler: 'onClearClick'
         },
@@ -59,4 +133,4 @@ Ext.define('MyApp.view.users.UserFormWindow', {
             handler: 'onSaveClick'
         },
     ]
-})
+});

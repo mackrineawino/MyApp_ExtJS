@@ -1,61 +1,78 @@
-Ext.define('MyApp.view.posts.AlbumFormWindow', {
+Ext.define('MyApp.view.albums.AlbumFormWindow', {
     extend: 'Ext.window.Window',
-    xtype: 'albumformwindow',
-    controller:'albumformcontroller',
-    title: "Add Album",
+    xtype: 'albumform',
+    controller: 'albumformcontroller',
     height: 300,
     width: 520,
     autoShow: true,
     closable: true,
     modal: true,
-    items:[{
+    layout: 'fit',
+    viewModel: {
+        data: {
+            newTitle: null,
+            record: null
+        }
+    },
+    bind: {
+        title: "{newTitle}",
+    },
+    items: [{
         xtype: 'form',
+        layout: 'form',
         reference: 'albumform',
-        itemId:'albumform',
-        jsonSubmit:true,
-        bodyPadding: 10,
-       items:[
-           {
-               allowBlank: false,
-               readOnly:true,
-               xtype:'textfield',
-               reference: 'albumId',
-               fieldLabel: 'Album ID',
-               name: 'id',
-               emptyText: 'Album id'
-           },
-           {
-               allowBlank: false,
-               xtype: 'textfield',
-               fieldLabel: 'User ID',
-               name: 'userId',
-               emptyText: 'user id'
-           },
-           {
-               allowBlank: false,
-               xtype: 'textfield',
-               fieldLabel: 'Title',
-               name: 'title',
-               emptyText: 'title'
-           },
-           {
-               allowBlank: false,
-               xtype: 'datefield',
-               fieldLabel: 'Published Date',
-               name: 'date',
-               emptyText: 'date'
-           },
-       ],
+        jsonSubmit: true,
+        defaultType: 'textfield',
+        items: [
+            {
+                fieldLabel: 'Album ID',
+                name: '_id',
+                reference: 'albumIdField',
+                bind: {
+                    value: '{record._id}'
+                },
+                readOnly: true
+            },
+            {
+
+                fieldLabel: 'User ID',
+                name: 'userId',
+                bind: {
+                    value: '{record.userId}'
+                }
+            },
+            {
+                fieldLabel: 'Title',
+                name: 'title',
+                allowBlank: false,
+                minLength: 10,
+                bind: {
+                    value: '{record.title}'
+                }
+            },
+            {
+                allowBlank: false,
+                xtype: 'datefield',
+                fieldLabel: 'Published Date',
+                name: 'date',
+                bind: {
+                    value: '{record.date}'
+                }
+            },
+        ],
+        buttons: [
+            {
+                text: 'Clear',
+                handler: 'onClearClick'
+            },
+            {
+                text: 'Save',
+                formBind: true,
+                handler: 'onSaveClick'
+            },
+        ]
 
     }],
-    buttons: [
-        {
-            text: 'Clear',
-            handler: 'onClearClick'
-        },
-        {
-            text: 'Save',
-            handler: 'onSaveClick'
-        },
-    ]
+
+
 })

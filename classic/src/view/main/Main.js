@@ -96,11 +96,11 @@ Ext.define('MyApp.view.main.Main', {
             xtype: 'companygrid'
         }]
     }, {
-        title: 'Albums',
+        title: 'Layouts',
         iconCls: 'fa-book',
-        // items: [{
-        //     xtype: 'albumgrid'
-        // }]
+        items: [{
+            xtype: 'layoutsview'
+        }]
     }, 
     {
         title: 'Comments',

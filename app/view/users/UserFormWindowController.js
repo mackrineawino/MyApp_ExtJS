@@ -10,34 +10,31 @@ Ext.define('MyApp.view.users.UserFormController', {
     },
     onSaveClick: function (btn, e, eOpts) {
         let window = this.getView();
-        console.log(window);
-        let references = window.getReferences();
+        let form = window.getReferences()['userform'].getForm();
+        let userId = window.getReferences()['UserIdField'].getValue(); // Corrected reference
 
-        let form = references['userform'].getForm();
+        if (form.isValid()) {
+            if (!userId) {
+                userId = Math.floor(Math.random() * 1000000);
+                window.getReferences()['UserIdField'].setValue(userId); // Set the generated ID in the form field
+            }
 
-        if(form.isValid()){
             //send ajax request to submit
             form.submit({
-                method:'POST',
-                url:'http://localhost:3000/users',
-                success:function(form,action){
+                method: 'POST',
+                url: 'http://localhost:3000/users',
+                success: function (form, action) {
                     Ext.Msg.alert('Success', action.result.msg);
-                    // add the record tpo the post store -> post grid
+                    // add the record to the user store
                 },
-                failure:function(form,action){
+                failure: function (form, action) {
                     // handle failures
                     Ext.Msg.alert('Failed', action.result.msg);
                 }
-
             });
-        }else{
+        } else {
             Ext.Msg.alert('Invalid Data', 'Please correct form errors.')
         }
-
-
-        //get all values
-        // submit to json place holder => backend
-        // add the items to the grid
     },
 
 })

@@ -1,4 +1,4 @@
-Ext.define('MyApp.view.posts.TodoFormWindow', {
+Ext.define('MyApp.view.todos.TodoFormWindow', {
     extend: 'Ext.window.Window',
     xtype: 'todoform',
     controller:'todoformcontroller',

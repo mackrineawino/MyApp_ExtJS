@@ -1,4 +1,4 @@
-Ext.define('MyApp.view.posts.TodoGridViewController',{
+Ext.define('MyApp.view.todos.TodoGridViewController',{
     extend: 'Ext.app.ViewController',
     alias: 'controller.todogridcontroller',
 

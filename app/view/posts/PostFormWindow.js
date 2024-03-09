@@ -1,62 +1,79 @@
 Ext.define('MyApp.view.posts.PostFormWindow', {
     extend: 'Ext.window.Window',
-    xtype: 'postformwindow',
-    controller:'postformcontroller',
+    xtype: 'postform',
+    controller: 'postformcontroller',
     title: "Add Post",
     height: 300,
     width: 520,
     autoShow: true,
     closable: true,
     modal: true,
-    modelValidation: true,
+    layout: 'fit',
+    viewModel: {
+        data: {
+            newTitle: null,
+            record: null
+        }
+    },
+    bind: {
+        title: "{newTitle}",
+    },
     items: [{
         xtype: 'form',
+        layout: 'form',
         reference: 'postform',
-        itemId:'postform',
-        jsonSubmit:true,
-        bodyPadding: 10,
+        jsonSubmit: true,
+        defaultType: 'textfield',
         items: [
             {
-                allowBlank: true,
-                readOnly:true,
-                xtype: 'textfield',
-                reference: 'postId',
+                readOnly: true,
+                reference: 'postIdField',
                 fieldLabel: 'Post ID',
                 name: '_id',
-                emptyText: 'Post id'
+                bind: {
+                    value: '{record._id}'
+                },
+
             },
             {
-                allowBlank: false,
-                xtype: 'textfield',
+
                 fieldLabel: 'User ID',
                 name: 'userId',
-                emptyText: 'user id'
+                bind: {
+                    value: '{record.userId}'
+                }
             },
             {
-                allowBlank: false,
-                xtype: 'textfield',
                 fieldLabel: 'Title',
                 name: 'title',
-                emptyText: 'title'
+                allowBlank: false,
+                minLength: 10,
+                bind: {
+                    value: '{record.title}'
+                }
             },
             {
-                allowBlank: false,
-                xtype: 'textareafield',
                 fieldLabel: 'Body',
                 name: 'body',
-                emptyText: 'body'
+                allowBlank: false,
+                minLength: 10,
+                bind: {
+                    value: '{record.body}'
+                }
             },
-        ],
 
+        ],
+        buttons: [
+            {
+                text: 'Clear',
+                handler: 'onClearClick'
+            },
+            {
+                text: 'Save',
+                formBind: true,
+                handler: 'onSaveClick'
+            },
+        ]
     }],
-    buttons: [
-        {
-            text: 'Clear',
-            handler: 'onClearClick'
-        },
-        {
-            text: 'Save',
-            handler: 'onSaveClick'
-        },
-    ]
+    
 })

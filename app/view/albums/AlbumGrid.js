@@ -1,8 +1,9 @@
-Ext.define('MyApp.view.posts.AlbumGrid', {
+Ext.define('MyApp.view.albums.AlbumGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'albumgrid',
+    reference: 'albumgrid',
+    scrollable: 'y',
     controller: 'albumgridviewcontroller',
-    title:'Albums',
     store: {
         type: 'albums'
     },
@@ -11,7 +12,15 @@ Ext.define('MyApp.view.posts.AlbumGrid', {
         listeners:{
             click: 'onAddAlbumClicked'
         }
-    }],
+    },
+    {
+        text: 'View Album',
+        handler: 'onViewAlbum',
+        bind:{
+            disabled: '{!albumgrid.selection}'
+        }
+    }
+],
     columns: [
         { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
@@ -19,7 +28,7 @@ Ext.define('MyApp.view.posts.AlbumGrid', {
     ],
     selModel: {
         selType: 'checkboxmodel',
-        mode: 'SINGLE'
+        mode: 'MULTI'
     },
     bbar: {
         xtype: 'pagingtoolbar',

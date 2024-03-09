@@ -2,6 +2,7 @@ Ext.define('MyApp.view.todos.TodoGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'todogrid',
     reference: 'todogrid',
+    scrollable: 'y',
     controller: 'todogridcontroller',
     store: {
         type: 'todos'

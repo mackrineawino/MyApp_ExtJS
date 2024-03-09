@@ -3,7 +3,7 @@ Ext.define('MyApp.view.posts.PostGrid', {
     xtype: 'postgrid',
     reference:'postgrid',
     controller: 'postgridviewcontroller',
-    title:'Posts',
+    scrollable: 'y',
     store: {
         type: 'posts'
     },
@@ -14,39 +14,10 @@ Ext.define('MyApp.view.posts.PostGrid', {
         }
     },
     {
-        text: 'Form fields',
-        listeners: {
-            click: 'onFormFieldsClicked'
-        }
-    },
-    {
-        text: 'BorderLayout',
-        listeners: {
-            click: 'onBorderLayoutsClicked'
-        }
-    },
-    {
-        text: 'HBoxVbox',
-        listeners: {
-            click: 'onHBoxVboxLayoutsClicked'
-        }
-    },
-    {
-        text: 'Column layout ',
-        listeners: {
-            click: 'onColumnLayoutsClicked'
-        }
-    },
-    {
-        text: 'Accordion layout ',
-        listeners: {
-            click: 'onAccordionLayoutsClicked'
-        }
-    },
-    {
-        text: 'Checkout Form',
-        listeners: {
-            click: 'onCheckoutFormClicked'
+        text: 'View Post',
+        handler: 'onViewPost',
+        bind:{
+            disabled: '{!postgrid.selection}'
         }
     }
     ],
