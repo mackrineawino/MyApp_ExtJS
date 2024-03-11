@@ -17,7 +17,7 @@ Ext.define('MyApp.view.albums.AlbumFormController', {
         if (form.isValid()) {
             // Generate a unique numeric ID for the album if it's not set
             if (!albumId) {
-                albumId = Math.floor(Math.random() * 1000000); 
+                albumId = Math.floor(Math.random() * 10); 
                 window.getReferences()['albumIdField'].setValue(albumId); // Set the generated ID in the form field
             }
             

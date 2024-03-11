@@ -52,5 +52,6 @@ Ext.define('MyApp.view.users.UserGridController', {
         Ext.create({
             xtype: 'modelbindingform'
         })
-    }
+    },
+    
 })

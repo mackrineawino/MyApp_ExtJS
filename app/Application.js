@@ -25,8 +25,13 @@ Ext.define("MyApp.Application", {
             }
         );
     },
-},
-function () {
-    console.log("On th callback");
-  }
+    launch: function (profile) {
+        var loggedIn;
+        loggedIn = localStorage.getItem("MyAppLoggedIn");
+        console.log(loggedIn);
+        // Ext.widget(loggedIn ? 'app-main' : 'login');
+        Ext.create({
+            xtype: loggedIn ? 'app-main' : 'login'
+        })
+    }}
 );

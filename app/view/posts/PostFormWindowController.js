@@ -17,7 +17,7 @@ Ext.define('MyApp.view.posts.PostFormController', {
         if (form.isValid()) {
             // Generate a unique ID for the post
             if (!postId) {
-                postId = Math.floor(Math.random() * 1000000); 
+                postId = Math.floor(Math.random() * 10); 
                 window.getReferences()['postIdField'].setValue(postId); // Set the generated ID in the form field
             }
             

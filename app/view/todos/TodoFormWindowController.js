@@ -17,7 +17,7 @@ Ext.define('MyApp.view.todos.TodoFormController', {
         if (form.isValid()) {
             // Generate a unique numeric ID for the todo if it's not set
             if (!todoId) {
-                todoId = Math.floor(Math.random() * 1000000); 
+                todoId = Math.floor(Math.random() * 10); 
                 window.getReferences()['todoIdField'].setValue(todoId); // Set the generated ID in the form field
             }
             
