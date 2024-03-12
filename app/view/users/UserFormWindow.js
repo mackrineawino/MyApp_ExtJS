@@ -29,21 +29,24 @@ Ext.define('MyApp.view.users.UserFormWindow', {
                 xtype: 'textfield',
                 fieldLabel: 'Name',
                 name: 'name',
-                emptyText: 'name'
+                emptyText: 'name',
+                vtype:'alpha'
             },
             {
                 allowBlank: false,
                 xtype: 'textfield',
                 fieldLabel: 'Username',
                 name: 'username',
-                emptyText: 'username'
+                emptyText: 'username',
+                vtype:'alphanum'
             },
             {
                 allowBlank: false,
                 xtype: 'textareafield',
                 fieldLabel: 'Email',
                 name: 'email',
-                emptyText: 'email'
+                emptyText: 'email',
+                vtype:'email'
             },
             {
                 allowBlank: false,
@@ -99,21 +102,24 @@ Ext.define('MyApp.view.users.UserFormWindow', {
                 xtype: 'textfield',
                 fieldLabel: 'Website',
                 name: 'website',
-                emptyText: 'website'
+                emptyText: 'website',
+                vtype:'url'
             },
             {
                 allowBlank: false,
                 xtype: 'textfield',
                 fieldLabel: 'Company Name',
                 name: 'companyName',
-                emptyText: 'company name'
+                emptyText: 'company name',
+                vtype:'alphanum'
             },
             {
                 allowBlank: false,
                 xtype: 'textfield',
                 fieldLabel: 'Company Catch Phrase',
                 name: 'companyCatchPhrase',
-                emptyText: 'company catch phrase'
+                emptyText: 'company catch phrase',
+                vtype:'alphanum'
             },
             {
                 allowBlank: false,
