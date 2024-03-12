@@ -1,7 +1,7 @@
 Ext.define('MyApp.view.posts.PostGrid', {
     extend: 'Ext.grid.Panel',
     xtype: 'postgrid',
-    reference:'postgrid',
+    reference: 'postgrid',
     controller: 'postgridviewcontroller',
     scrollable: 'y',
     store: {
@@ -9,16 +9,29 @@ Ext.define('MyApp.view.posts.PostGrid', {
     },
     tbar: [{
         text: 'Add Post',
+        iconCls: 'fas fa-plus',
         listeners: {
             click: 'onAddPostClicked'
         }
     },
     {
-        text: 'View Post',
+        text: 'Edit/View Post',
+        iconCls: 'fas fa-pencil-alt',
         handler: 'onViewPost',
         bind:{
             disabled: '{!postgrid.selection}'
+        },
+    },
+    {
+        text: 'Delete Post',
+        iconCls: 'far fa-trash-alt',
+        listeners: {
+            click: 'onDeleteClicked'
         }
+    },
+    {
+        text: 'View Post',
+        
     }
     ],
     columns: [

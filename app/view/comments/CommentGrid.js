@@ -13,6 +13,21 @@ Ext.define('MyApp.view.comments.CommentGrid', {
             click: 'onAddCommentClicked'
         }
     },
+    {
+        text: 'Edit/View Comment',
+        iconCls: 'fas fa-pencil-alt',
+        handler: 'onViewcomment',
+        bind:{
+            disabled: '{!commentgrid.selection}'
+        }
+    },
+    {
+        text: 'Delete Comment',
+        iconCls: 'far fa-trash-alt',
+        listeners: {
+            click: 'onDeleteClicked'
+        }
+    },
    
     ],
     columns: [
