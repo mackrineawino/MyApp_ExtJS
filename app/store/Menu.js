@@ -12,11 +12,13 @@ Ext.define('MyApp.store.Menu',{
                     {
                         text:'Users',
                         iconCls:'fa fa-users',
+                        className:'usergrid',
                         leaf:true
                     },
                     {
-                        text: 'Permission',
+                        text: 'Todos',
                         iconCls: 'fas fa-user-secret',
+                        // className:'todogrid',
                         leaf: true
                     }
                 ]
@@ -27,13 +29,15 @@ Ext.define('MyApp.store.Menu',{
                 iconCls:'fa fa-database fa-lg',
                 children: [
                     {
-                        text: 'Users',
+                        text: 'Posts',
                         iconCls: 'fa fa-users',
+                        // className:'postgrid',
                         leaf: true
                     },
                     {
-                        text: 'Permission',
+                        text: 'Albums',
                         iconCls: 'fa fa-users',
+                        // className:'albumgrid',
                         leaf: true
                     }
                 ]

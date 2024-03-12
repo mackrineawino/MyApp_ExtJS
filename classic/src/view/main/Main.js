@@ -28,19 +28,7 @@ Ext.define('MyApp.view.main.Main', {
     },
     {
         region: 'center',
-        xtype: 'tabpanel',
-        items: [{
-            title: 'Foo'
-        },
-        {
-            title: 'Bar',
-            closable: true,
-            tabConfig: {
-                title: 'Custom Title',
-                tooltip: 'A button tooltip'
-            }
-        }]
-
+        xtype: 'mainpanel',
     },
     {
 
