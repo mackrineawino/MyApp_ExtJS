@@ -27,12 +27,11 @@ Ext.define('MyApp.view.posts.PostGrid', {
         iconCls: 'far fa-trash-alt',
         listeners: {
             click: 'onDeleteClicked'
-        }
+        },
+        bind:{
+            disabled: '{!postgrid.selection}'
+        },
     },
-    {
-        text: 'View Post',
-        
-    }
     ],
     columns: [
         { dataIndex: '_id', text: 'ID' },

@@ -26,6 +26,9 @@ Ext.define('MyApp.view.comments.CommentGrid', {
         iconCls: 'far fa-trash-alt',
         listeners: {
             click: 'onDeleteClicked'
+        },
+        bind:{
+            disabled: '{!commentgrid.selection}'
         }
     },
    

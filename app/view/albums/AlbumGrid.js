@@ -27,6 +27,9 @@ Ext.define('MyApp.view.albums.AlbumGrid', {
         iconCls: 'far fa-trash-alt',
         listeners: {
             click: 'onDeleteClicked'
+        },
+        bind:{
+            disabled: '{!albumgrid.selection}'
         }
     },
 

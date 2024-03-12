@@ -28,7 +28,10 @@ Ext.define('MyApp.view.todos.TodoGrid', {
         iconCls: 'far fa-trash-alt',
         listeners: {
             click: 'onDeleteClicked'
-        }
+        },
+        bind:{
+            disabled: '{!todogrid.selection}'
+        },
     },
     ],
     columns: [
