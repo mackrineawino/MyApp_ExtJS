@@ -30,8 +30,6 @@ Ext.define("MyApp.Application", {
         loggedIn = localStorage.getItem("MyAppLoggedIn");
         console.log(loggedIn);
         // Ext.widget(loggedIn ? 'app-main' : 'login');
-        Ext.create({
-            xtype: loggedIn ? 'app-main' : 'login'
-        })
+        Ext.widget(loggedIn ? 'app-main' : 'login');
     }}
 );
