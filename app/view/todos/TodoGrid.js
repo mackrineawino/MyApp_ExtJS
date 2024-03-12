@@ -21,9 +21,7 @@ Ext.define('MyApp.view.todos.TodoGrid', {
         bind:{
             disabled: '{!todogrid.selection}'
         },
-        listeners: {
-            click: 'onEditClicked'
-        }
+        
     },
     {
         text: 'Delete Todo',
