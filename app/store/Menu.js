@@ -18,7 +18,7 @@ Ext.define('MyApp.store.Menu',{
                     {
                         text: 'Todos',
                         iconCls: 'fas fa-user-secret',
-                        // className:'todogrid',
+                        className:'todogrid',
                         leaf: true
                     }
                 ]
@@ -31,13 +31,19 @@ Ext.define('MyApp.store.Menu',{
                     {
                         text: 'Posts',
                         iconCls: 'fa fa-users',
-                        // className:'postgrid',
+                        className:'postgrid',
                         leaf: true
                     },
                     {
                         text: 'Albums',
                         iconCls: 'fa fa-users',
-                        // className:'albumgrid',
+                        className:'albumgrid',
+                        leaf: true
+                    },
+                    {
+                        text: 'Comment',
+                        iconCls: 'fa fa-users',
+                        className:'commentgrid',
                         leaf: true
                     }
                 ]

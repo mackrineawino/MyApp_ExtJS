@@ -9,17 +9,30 @@ Ext.define('MyApp.view.todos.TodoGrid', {
     },
     tbar:[{
         text: 'Add Todo',
+        iconCls: 'fas fa-plus',
         listeners:{
             click: 'onAddTodoClicked'
         }
     },
     {
-        text: 'View Todo',
+        text: 'Edit/View Todo',
+        iconCls: 'fas fa-pencil-alt',
         handler: 'onViewTodo',
         bind:{
             disabled: '{!todogrid.selection}'
+        },
+        listeners: {
+            click: 'onEditClicked'
         }
-    }],
+    },
+    {
+        text: 'Delete Todo',
+        iconCls: 'far fa-trash-alt',
+        listeners: {
+            click: 'onDeleteClicked'
+        }
+    },
+    ],
     columns: [
         { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },

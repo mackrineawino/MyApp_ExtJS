@@ -9,17 +9,27 @@ Ext.define('MyApp.view.albums.AlbumGrid', {
     },
     tbar:[{
         text: 'Add Album',
+        iconCls: 'fas fa-plus',
         listeners:{
             click: 'onAddAlbumClicked'
         }
     },
     {
-        text: 'View Album',
+        text: 'Edit/View Album',
+        iconCls: 'fas fa-pencil-alt',
         handler: 'onViewAlbum',
         bind:{
             disabled: '{!albumgrid.selection}'
         }
-    }
+    },
+    {
+        text: 'Delete Album',
+        iconCls: 'far fa-trash-alt',
+        listeners: {
+            click: 'onDeleteClicked'
+        }
+    },
+
 ],
     columns: [
         { dataIndex: '_id', text: 'ID' },
