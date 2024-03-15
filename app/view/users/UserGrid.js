@@ -6,7 +6,7 @@ Ext.define('MyApp.view.users.UserGrid', {
     store: {
         type: 'users'
     },
-    height: 600,
+    width: 1000,
     plugins: {
         cellediting: {
             clicksToEdit: 2
@@ -88,6 +88,7 @@ Ext.define('MyApp.view.users.UserGrid', {
         displayInfo: true
     },
     listeners: {
-        cellclick: 'onUserGridCellClick'
+        cellclick: 'onUserGridCellClick',
+        selectuser:'onSelectUser',
     }
 });
