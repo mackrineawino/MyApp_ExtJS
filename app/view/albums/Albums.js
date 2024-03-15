@@ -1,0 +1,17 @@
+Ext.define('MyApp.view.albums.Albums',{
+    extend:'Ext.panel.Panel',
+    xtype:'albums',
+    viewModel:{
+        data:{
+            record:null
+        }
+    },
+    items:[
+        {
+            xtype:'albumgrid'
+        },
+        {
+            xtype:'albumDetails'
+        }
+    ]
+})

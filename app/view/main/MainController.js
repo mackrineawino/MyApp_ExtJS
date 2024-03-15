@@ -26,7 +26,7 @@ Ext.define('MyApp.view.main.MainController', {
 
     routes: {
         'home': 'onHomeRoute',
-        'users|albumgrid|posts|todogrid': {
+        'users|albums|posts|todos': {
             action: 'onRoute',
             before: 'onBeforeRoute'
         },
@@ -40,6 +40,20 @@ Ext.define('MyApp.view.main.MainController', {
         'users/:id': {
             action: 'onUserSelect',
             before: 'onBeforeUserSelect',
+            conditions: {
+                ':id': '([0-9]+)'
+            }
+        },
+        'todos/:id': {
+            action: 'onTodoSelect',
+            before: 'onBeforeTodoSelect',
+            conditions: {
+                ':id': '([0-9]+)'
+            }
+        },
+        'albums/:id': {
+            action: 'onAlbumSelect',
+            before: 'onBeforeAlbumSelect',
             conditions: {
                 ':id': '([0-9]+)'
             }
@@ -80,6 +94,12 @@ Ext.define('MyApp.view.main.MainController', {
     getUserGrid: function () {
         return Ext.ComponentQuery.query('usergrid')[0];
     },
+    getTodoGrid: function () {
+        return Ext.ComponentQuery.query('todogrid')[0];
+    },
+    getAlbumGrid: function () {
+        return Ext.ComponentQuery.query('albumgrid')[0];
+    },
 
     onMainMenuItemClick: function (view, record, item, index, e, eOpts) {
         this.redirectTo(record.get('className'))
@@ -114,6 +134,12 @@ Ext.define('MyApp.view.main.MainController', {
     },
     onUserSelect: function (id) {
         this.getUserGrid().fireEvent('selectuser', id)
+    },
+    onTodoSelect: function (id) {
+        this.getUserGrid().fireEvent('selecttodo', id)
+    },
+    onAlbumSelect: function (id) {
+        this.getAlbumGrid().fireEvent('selectalbum', id)
     },
     onBeforePostSelect: function (id, action) {
         var me = this,
@@ -159,5 +185,51 @@ Ext.define('MyApp.view.main.MainController', {
 
 
     },
+    onBeforeTodoSelect: function (id, action) {
+        var me = this,
+            hash = 'todos',
+            mainMenu = me.getMainMenu();
+        me.locateMenuItem(mainMenu, hash);
+
+        //get reference to grid
+        let grid = this.getTodoGrid();
+
+        //get store
+        let store = grid.getStore()
+        //find record with the id
+        let record = store.findRecord('_id', id);
+        if (record) {
+            action.resume()
+
+        } else {
+            action.stop()
+        }
+
+
+    },
+
+    onBeforeAlbumSelect: function (id, action) {
+        var me = this,
+            hash = 'albums',
+            mainMenu = me.getMainMenu();
+        me.locateMenuItem(mainMenu, hash);
+
+        //get reference to grid
+        let grid = this.getAlbumGrid();
+
+        //get store
+        let store = grid.getStore()
+        //find record with the id
+        let record = store.findRecord('_id', id);
+        if (record) {
+            action.resume()
+
+        } else {
+            action.stop()
+        }
+
+
+    },
+
 
 });

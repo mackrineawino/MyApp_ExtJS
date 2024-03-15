@@ -4,6 +4,7 @@ Ext.define('MyApp.view.todos.TodoGrid', {
     reference: 'todogrid',
     scrollable: 'y',
     controller: 'todogridcontroller',
+    height: '400',
     store: {
         type: 'todos'
     },
@@ -14,6 +15,15 @@ Ext.define('MyApp.view.todos.TodoGrid', {
             click: 'onAddTodoClicked'
         }
     },
+    {
+        text: 'Show Details',
+        handler: 'onShowDetails',
+        bind: {
+            disabled: '{!todogrid.selection}'
+        }
+    },
+    
+
     {
         text: 'Edit/View Todo',
         iconCls: 'fas fa-pencil-alt',
@@ -49,5 +59,10 @@ Ext.define('MyApp.view.todos.TodoGrid', {
         displayInfo: true
     },
     scrollable:true,
+    listeners: {
+        selectpost:'onSelectTodo',
+        cellclick: 'onTodoGridCellClick'
+    }
+
 
 })
