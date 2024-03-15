@@ -52,13 +52,13 @@ Ext.define('MyApp.store.Menu',{
                     {
                         text: 'Albums',
                         iconCls: 'fa fa-address-card',
-                        className:'albumgrid',
+                        className:'albums',
                         leaf: true
                     },
                     {
                         text: 'Todos',
                         iconCls: 'fa fa-list-ul',
-                        className:'todogrid',
+                        className:'todos',
                         leaf: true
                     }
                     

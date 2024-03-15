@@ -15,6 +15,13 @@ Ext.define('MyApp.view.albums.AlbumGrid', {
         }
     },
     {
+        text: 'Show Details',
+        handler: 'onShowDetails',
+        bind: {
+            disabled: '{!albumgrid.selection}'
+        }
+    },
+    {
         text: 'Edit/View Album',
         iconCls: 'fas fa-pencil-alt',
         handler: 'onViewAlbum',
@@ -48,5 +55,10 @@ Ext.define('MyApp.view.albums.AlbumGrid', {
         displayInfo: true
     },
     scrollable:true,
+    listeners: {
+        selectpost:'onSelectAlbum',
+        cellclick: 'onAlbumGridCellClick'
+    }
+
 
 })

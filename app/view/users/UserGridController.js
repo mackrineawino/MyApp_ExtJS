@@ -41,7 +41,7 @@ Ext.define('MyApp.view.users.UserGridController', {
             refs = me.getReferences();
         vm.set("record", record)
         let userId = record.get('_id');
-        Ext.util.History.add('users/' + userId); postId
+        Ext.util.History.add('users/' + userId);
     },
     onSelectUser: function (id) {
         let me = this,
