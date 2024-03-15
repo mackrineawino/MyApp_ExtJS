@@ -1,0 +1,17 @@
+Ext.define('MyApp.view.users.Users',{
+    extend:'Ext.panel.Panel',
+    xtype:'posts',
+    viewModel:{
+        data:{
+            record:null
+        }
+    },
+    items:[
+        {
+            xtype:'usergrid'
+        },
+        {
+            xtype:'userDetails'
+        }
+    ]
+})

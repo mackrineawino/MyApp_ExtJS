@@ -3,6 +3,7 @@ Ext.define('MyApp.view.main.MainPanel', {
     xtype:'mainpanel',
     items: [{
         title: 'Home',
+        className: 'home',
         iconCls:'fa fa-home',
-    }]
+    }],
 })

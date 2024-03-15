@@ -6,21 +6,35 @@ Ext.define('MyApp.store.Menu',{
         expanded: true,
         children: [
             {
-                text: 'Security',
+                text: 'One',
                 iconCls:'fa-lock',
                 children:[
                     {
                         text:'Users',
-                        iconCls:'fa-user',
+                        iconCls:'fa fa-user',
                         className:'usergrid',
                         leaf:true
                     },
                     {
                         text: 'Comment',
-                        iconCls: 'fa-comment',
+                        iconCls: 'fa fa-comment',
                         className:'commentgrid',
                         leaf: true
-                    }
+                    },
+                    {
+                        text: 'Students',
+                        iconCls: 'fa fa-address-book',
+                        leaf: true,
+                        className: 'studentgrid'
+                      
+                    }, 
+                    {
+                        text: 'Companies',
+                        iconCls: 'fa fa-building',
+                        leaf: true,
+                        className: 'companygrid'
+                        
+                    },
                    
                 ]
 
@@ -31,23 +45,37 @@ Ext.define('MyApp.store.Menu',{
                 children: [
                     {
                         text: 'Posts',
-                        iconCls: 'fa-book',
-                        className:'postgrid',
+                        iconCls: 'fa fa-book',
+                        className:'posts',
                         leaf: true
                     },
                     {
                         text: 'Albums',
-                        iconCls: 'fa-address-card',
+                        iconCls: 'fa fa-address-card',
                         className:'albumgrid',
                         leaf: true
                     },
                     {
                         text: 'Todos',
-                        iconCls: 'fa-list-ul',
+                        iconCls: 'fa fa-list-ul',
                         className:'todogrid',
                         leaf: true
                     }
                     
+                ]
+
+            },
+            {
+                text: 'Review',
+                iconCls:'fa fa-database fa-lg',
+                children: [
+                    {
+                        text: 'Review Panel',
+                        iconCls: 'fa fa-users',
+                        className: 'reviewpanel',
+                        leaf: true
+                    }
+
                 ]
 
             },

@@ -4,6 +4,7 @@ Ext.define('MyApp.view.posts.PostGrid', {
     reference: 'postgrid',
     controller: 'postgridviewcontroller',
     scrollable: 'y',
+    height: 400,
     store: {
         type: 'posts'
     },
@@ -12,6 +13,35 @@ Ext.define('MyApp.view.posts.PostGrid', {
         iconCls: 'fas fa-plus',
         listeners: {
             click: 'onAddPostClicked'
+        }
+    },
+    {
+        text: 'Show Details',
+        handler: 'onShowDetails',
+        bind: {
+            disabled: '{!postgrid.selection}'
+        }
+    },
+    {
+        fieldLabel: 'Search',
+        xtype: 'textfield',
+        listeners: {
+            change: 'onSearchKeyValueChange'
+        }
+    },
+    {
+        fieldLabel: 'Choose User',
+        xtype: 'combo',
+
+        store: {
+            type: 'users'
+        },
+        queryMode: 'local',
+        displayField: 'username',
+        valueField: '_id',
+        listeners:{
+            change:'onUserSelectionChange',
+            select:'onUserSelected'
         }
     },
     {
@@ -26,7 +56,8 @@ Ext.define('MyApp.view.posts.PostGrid', {
         text: 'Delete Post',
         iconCls: 'far fa-trash-alt',
         listeners: {
-            click: 'onDeleteClicked'
+            click: 'onDeleteClicked',
+           
         },
         bind:{
             disabled: '{!postgrid.selection}'
@@ -48,5 +79,9 @@ Ext.define('MyApp.view.posts.PostGrid', {
         displayInfo: true
     },
     scrollable: true,
+    listeners: {
+        selectpost:'onSelectPost',
+        cellclick: 'onPostGridCellClick'
+    }
 
 })
