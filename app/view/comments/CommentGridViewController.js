@@ -14,7 +14,7 @@ Ext.define('MyApp.view.comments.CommentGridViewController',{
     onDeleteClicked: function (btn, e, eOpts) {
         let me=this;
         let record = this.getSelectedRecordByXType('commentgrid');
-        let grid = me.getView()
+        let grid = me.getView();
         if (record){
             let recordId = record.get('_id');
             Ext.Msg.confirm('Delete Operation', `Are you sure you want to delete the comment with id ${recordId}`, function (btn, text) {

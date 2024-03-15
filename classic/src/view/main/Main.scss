@@ -2,3 +2,38 @@ main-menu-title {
     font-size: 30px;
     font-weight: bold;
 }
+.hexagon {
+    width: 150px; /* Adjust the width of the hexagon */
+    height: 82.5px; /* Adjust the height of the hexagon */
+    background-color: #3b81e9;
+    position: relative;
+    margin: 20px 30px;
+    text-align: center;
+    line-height: 82.5px; /* Adjust the line-height to vertically center content */
+    color: #fff;
+    font-size: 18px; /* Adjust the font size */
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.hexagon::before,
+.hexagon::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 75px solid transparent; /* Adjust the size of the border */
+    border-right: 75px solid transparent; /* Adjust the size of the border */
+}
+
+.hexagon::before {
+    top: -41.25px; /* Adjust the top position */
+    border-bottom: 41.25px solid #3b81e9; /* Adjust the size of the border */
+    left: 0; /* Align to the left edge of the hexagon */
+}
+
+.hexagon::after {
+    bottom: -41.25px; /* Adjust the bottom position */
+    border-top: 41.25px solid #3b81e9; /* Adjust the size of the border */
+    left: 0; /* Align to the left edge of the hexagon */
+}
