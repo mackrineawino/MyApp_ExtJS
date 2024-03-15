@@ -26,13 +26,20 @@ Ext.define('MyApp.view.main.MainController', {
 
     routes: {
         'home': 'onHomeRoute',
-        'usergrid|albumgrid|posts|todogrid': {
+        'users|albumgrid|posts|todogrid': {
             action: 'onRoute',
             before: 'onBeforeRoute'
         },
         'posts/:id': {
             action: 'onPostSelect',
             before: 'onBeforePostSelect',
+            conditions: {
+                ':id': '([0-9]+)'
+            }
+        },
+        'users/:id': {
+            action: 'onUserSelect',
+            before: 'onBeforeUserSelect',
             conditions: {
                 ':id': '([0-9]+)'
             }
@@ -70,6 +77,9 @@ Ext.define('MyApp.view.main.MainController', {
     getPostGrid: function () {
         return Ext.ComponentQuery.query('postgrid')[0];
     },
+    getUserGrid: function () {
+        return Ext.ComponentQuery.query('usergrid')[0];
+    },
 
     onMainMenuItemClick: function (view, record, item, index, e, eOpts) {
         this.redirectTo(record.get('className'))
@@ -102,6 +112,9 @@ Ext.define('MyApp.view.main.MainController', {
     onPostSelect: function (id) {
         this.getPostGrid().fireEvent('selectpost', id)
     },
+    onUserSelect: function (id) {
+        this.getUserGrid().fireEvent('selectuser', id)
+    },
     onBeforePostSelect: function (id, action) {
         var me = this,
             hash = 'posts',
@@ -110,6 +123,28 @@ Ext.define('MyApp.view.main.MainController', {
 
         //get reference to grid
         let grid = this.getPostGrid();
+
+        //get store
+        let store = grid.getStore()
+        //find record with the id
+        let record = store.findRecord('_id', id);
+        if (record) {
+            action.resume()
+
+        } else {
+            action.stop()
+        }
+
+
+    },
+    onBeforeUserSelect: function (id, action) {
+        var me = this,
+            hash = 'users',
+            mainMenu = me.getMainMenu();
+        me.locateMenuItem(mainMenu, hash);
+
+        //get reference to grid
+        let grid = this.getUserGrid();
 
         //get store
         let store = grid.getStore()
