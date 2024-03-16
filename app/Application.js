@@ -25,13 +25,25 @@ Ext.define("MyApp.Application", {
             }
         );
     },
-    launch: function (profile) {
-        var loggedIn;
-        loggedIn = localStorage.getItem("MyAppLoggedIn");
-        console.log(loggedIn);
-        // Ext.widget(loggedIn ? 'app-main' : 'login');
-        Ext.widget(loggedIn ? 'app-main' : 'login');
+    launch: function () {
+      Ext.util.History.init();
+      // Check if the user is already logged in
+      if (localStorage.getItem('MyAppAuthToken')) {
+          Ext.widget('app-main');
+          Ext.util.History.add('home');
+      } else {
+          Ext.widget('loginwindow');
+          Ext.util.History.add('login');
+      }
+  },
+  routes: {
+
+     'login': 'showLoginPage',
+    
     },
+    showLoginPage: function () {
+      this.redirectTo('login');
+  },
     defaultToken: 'home',
     listen: {
       global: {

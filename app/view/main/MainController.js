@@ -13,20 +13,21 @@ Ext.define('MyApp.view.main.MainController', {
     onLogout: function () {
 
         // Remove the localStorage key/value
-        localStorage.removeItem('MsAppLoggedIn');
+        localStorage.removeItem('MyAppAuthToken');
 
         // Remove Main View
         this.getView().destroy();
 
         // Add the Login Window
-        Ext.widget('login');
+        Ext.widget('loginwindow');
+        Ext.util.History.add('login');
 
     },
 
 
     routes: {
         'home': 'onHomeRoute',
-        'users|albums|posts|todos': {
+        'users|albums|posts|todos|trialbalancegrid': {
             action: 'onRoute',
             before: 'onBeforeRoute'
         },
@@ -74,7 +75,14 @@ Ext.define('MyApp.view.main.MainController', {
     },
     onBeforeRoute: function (action) {
         var hash = Ext.util.History.getToken();
-        action.resume()
+        var isLoggedIn = localStorage.getItem('MyAppAuthToken');
+        if (isLoggedIn || hash === 'login') {
+            action.resume();
+        } else {
+            Ext.util.History.add('login');
+            this.redirectTo('login');
+            
+        }
     },
     locateMenuItem: function (mainMenu, className) {
         let rootNode = mainMenu.getRootNode();

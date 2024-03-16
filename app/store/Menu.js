@@ -9,12 +9,7 @@ Ext.define('MyApp.store.Menu',{
                 text: 'One',
                 iconCls:'fa-lock',
                 children:[
-                    {
-                        text:'Users',
-                        iconCls:'fa fa-user',
-                        className:'users',
-                        leaf:true
-                    },
+                    
                     {
                         text: 'Comment',
                         iconCls: 'fa fa-comment',
@@ -35,6 +30,13 @@ Ext.define('MyApp.store.Menu',{
                         className: 'companygrid'
                         
                     },
+                    {
+                        text: 'TrialBalance',
+                        iconCls: 'fa fa-building',
+                        leaf: true,
+                        className: 'trialbalancegrid'
+                        
+                    },
                    
                 ]
 
@@ -43,6 +45,12 @@ Ext.define('MyApp.store.Menu',{
                 text: 'Static Data',
                 iconCls:'fa fa-database fa-lg',
                 children: [
+                    {
+                        text:'Users',
+                        iconCls:'fa fa-user',
+                        className:'users',
+                        leaf:true
+                    },
                     {
                         text: 'Posts',
                         iconCls: 'fa fa-book',
