@@ -1,6 +1,6 @@
 Ext.define('MyApp.view.login.Login', {
     extend: 'Ext.window.Window',
-    xtype: 'login',
+    xtype: 'loginwindow',
     requires: [
         'MyApp.view.login.LoginController',
         'Ext.form.Panel'
@@ -10,6 +10,9 @@ Ext.define('MyApp.view.login.Login', {
     bodyPadding: 10,
     title: 'Login Window',
     closable: false,
+    draggable: false,
+    resizable: false,
+    layout: 'fit',
     autoShow: true,
     items: {
         xtype: 'form',
@@ -32,7 +35,9 @@ Ext.define('MyApp.view.login.Login', {
             hideEmptyLabel: false,
             value: 'Enter any non-blank password'
         }],
-        buttons: [{
+        buttons: [
+            
+            {
             text: 'Login',
             formBind: true,
             listeners: {
