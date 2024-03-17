@@ -8,62 +8,80 @@ Ext.define('MyApp.view.posts.PostGrid', {
     store: {
         type: 'posts'
     },
-    tbar: [{
-        text: 'Add Post',
-        iconCls: 'fas fa-plus',
-        listeners: {
-            click: 'onAddPostClicked'
-        }
-    },
-    {
-        text: 'Show Details',
-        handler: 'onShowDetails',
-        bind: {
-            disabled: '{!postgrid.selection}'
-        }
-    },
-    {
-        fieldLabel: 'Search',
-        xtype: 'textfield',
-        listeners: {
-            change: 'onSearchKeyValueChange'
-        }
-    },
-    {
-        fieldLabel: 'Choose User',
-        xtype: 'combo',
+    tbar: {
+        overflowHandler: 'menu',
+        items: [
+            {
+                text: 'Add Post',
+                iconCls: 'fas fa-plus',
+                listeners: {
+                    click: 'onAddPostClicked'
+                }
+            },
+            {
+                text: 'Show Details',
+                handler: 'onShowDetails',
+                bind: {
+                    disabled: '{!postgrid.selection}'
+                }
+            },
+            {
+                fieldLabel: 'Search',
+                xtype: 'textfield',
+                listeners: {
+                    change: 'onSearchKeyValueChange'
+                }
+            },
+            {
+                fieldLabel: 'Search',
+                xtype: 'textfield',
+                listeners: {
+                    change: 'onSearchKeyValueChange'
+                }
+            },
+            {
+                fieldLabel: 'Search',
+                xtype: 'textfield',
+                listeners: {
+                    change: 'onSearchKeyValueChange'
+                }
+            },
+            {
+                fieldLabel: 'Choose User',
+                xtype: 'combo',
 
-        store: {
-            type: 'users'
-        },
-        queryMode: 'local',
-        displayField: 'username',
-        valueField: '_id',
-        listeners:{
-            change:'onUserSelectionChange',
-            select:'onUserSelected'
-        }
+                store: {
+                    type: 'users'
+                },
+                queryMode: 'local',
+                displayField: 'username',
+                valueField: '_id',
+                listeners: {
+                    change: 'onUserSelectionChange',
+                    select: 'onUserSelected'
+                }
+            },
+            {
+                text: 'Edit/View Post',
+                iconCls: 'fas fa-pencil-alt',
+                handler: 'onViewPost',
+                bind: {
+                    disabled: '{!postgrid.selection}'
+                },
+            },
+            {
+                text: 'Delete Post',
+                iconCls: 'far fa-trash-alt',
+                listeners: {
+                    click: 'onDeleteClicked',
+
+                },
+                bind: {
+                    disabled: '{!postgrid.selection}'
+                },
+            },
+        ]
     },
-    {
-        text: 'Edit/View Post',
-        iconCls: 'fas fa-pencil-alt',
-        handler: 'onViewPost',
-        bind:{
-            disabled: '{!postgrid.selection}'
-        },
-    },
-    {
-        text: 'Delete Post',
-        iconCls: 'far fa-trash-alt',
-        listeners: {
-            click: 'onDeleteClicked',
-           
-        },
-        bind:{
-            disabled: '{!postgrid.selection}'
-        },
-    },
-    ],
     columns: [
         { dataIndex: '_id', text: 'ID' },
         { dataIndex: 'title', text: 'Title', flex: 1 },
@@ -80,7 +98,7 @@ Ext.define('MyApp.view.posts.PostGrid', {
     },
     scrollable: true,
     listeners: {
-        selectpost:'onSelectPost',
+        selectpost: 'onSelectPost',
         cellclick: 'onPostGridCellClick'
     }
 
