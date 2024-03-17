@@ -34,7 +34,7 @@ Ext.define('MyApp.store.Menu',{
                         text: 'TrialBalance',
                         iconCls: 'fa fa-building',
                         leaf: true,
-                        className: 'trialbalancegrid'
+                        className: 'trialbalance'
                         
                     },
                    

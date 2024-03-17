@@ -10,6 +10,9 @@ Ext.define('MyApp.view.login.Login', {
     bodyPadding: 10,
     title: 'Login Window',
     closable: false,
+    draggable: false,
+    resizable: false,
+    layout: 'fit',
     autoShow: true,
     items: {
         xtype: 'form',

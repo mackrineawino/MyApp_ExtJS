@@ -27,7 +27,7 @@ Ext.define('MyApp.view.main.MainController', {
 
     routes: {
         'home': 'onHomeRoute',
-        'users|albums|posts|todos|trialbalancegrid': {
+        'users|albums|posts|todos|trialbalance': {
             action: 'onRoute',
             before: 'onBeforeRoute'
         },
